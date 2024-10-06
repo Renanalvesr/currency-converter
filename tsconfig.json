@@ -5,10 +5,6 @@
   "compilerOptions": {
     "outDir": "./dist/out-tsc",
     "strict": true,
-    "noImplicitOverride": true,
-    "noPropertyAccessFromIndexSignature": true,
-    "noImplicitReturns": true,
-    "noFallthroughCasesInSwitch": true,
     "skipLibCheck": true,
     "isolatedModules": true,
     "esModuleInterop": true,
@@ -22,7 +18,28 @@
     "lib": [
       "ES2022",
       "dom"
-    ]
+    ],
+    "allowJs": false,
+    "noImplicitAny": true,
+    "noUncheckedIndexedAccess": true,
+    "alwaysStrict": true,
+    "noFallthroughCasesInSwitch": true,
+    "noPropertyAccessFromIndexSignature": true,
+    "noImplicitOverride": true,
+    "noImplicitThis": true,
+    "noStrictGenericChecks": false,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "noImplicitReturns": true,
+    "strictFunctionTypes": true,
+    "strictBindCallApply": true,
+    "strictPropertyInitialization": true,
+    "strictNullChecks": true,
+    "useUnknownInCatchVariables": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "forceConsistentCasingInFileNames": true,
+    "exactOptionalPropertyTypes": true
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
