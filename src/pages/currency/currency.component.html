@@ -1,4 +1,9 @@
 <h1>Conversor de moedas</h1>
 <p>Digite um valor para ser convertido</p>
-<input type="number" name="" (input)="currencyInput($event)" 
-placeholder="Enter amount">
+<input
+  type="text"
+  name=""
+  [value]="formattedValue"
+  (input)="currencyInput($event)"
+  placeholder="Enter amount"
+/>

@@ -6,16 +6,17 @@ import { formatToEuro } from '../../utils/utils';
   standalone: true,
   imports: [],
   templateUrl: './currency.component.html',
-  styleUrl: './currency.component.scss'
+  styleUrl: './currency.component.scss',
 })
 export class CurrencyComponent {
   formattedValue = '';
 
-  currencyInput(event:Event): void {
+  currencyInput(event: Event): void {
     console.log('áqui');
-    
+
     const input = event.target as HTMLInputElement;
-    this.formattedValue = formatToEuro(input.value);
+    const rawValue = input.value.replace(/[^\d]/g, '');
+    this.formattedValue = formatToEuro(rawValue);
+    input.value = this.formattedValue;
   }
 }
-
