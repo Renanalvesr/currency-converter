@@ -1,22 +1,35 @@
-import { Component } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { formatToEuro } from '../../utils/utils';
 
 @Component({
   selector: 'app-currency',
   standalone: true,
   imports: [],
-  templateUrl: './currency.component.html',
+  template: `<h1>Conversor de moedas</h1>
+    <p>Digite um valor para ser convertido</p>
+    <div class="currencyInput">
+      
+      <span>€</span>
+      <input
+      type="text"
+      name="currencyInput"
+      [value]="formattedStringValue"
+      (input)="currencyInput($event)"
+      placeholder="Enter amount"
+      />
+    </div>
+    `,
   styleUrl: './currency.component.scss',
 })
 export class CurrencyComponent {
-  formattedValue = '';
+  @Output() formattedValue: EventEmitter<string> = new EventEmitter<string>();
+  formattedStringValue = '';
 
   currencyInput(event: Event): void {
-    console.log('áqui');
-
     const input = event.target as HTMLInputElement;
-    const rawValue = input.value.replace(/[^\d]/g, '');
-    this.formattedValue = formatToEuro(rawValue);
-    input.value = this.formattedValue;
+    const currencyValue = formatToEuro(input.value.replace(/[^\d]/g, ''));
+    input.value = currencyValue;
+    this.formattedStringValue = currencyValue;
+    this.formattedValue.emit(currencyValue);
   }
 }

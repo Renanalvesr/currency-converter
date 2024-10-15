@@ -1,18 +1,12 @@
 export function formatToEuro(value: string): string {
-  // Remove non-numeric characters
-  const numericValue = value.replace(/\D/g, '');
-
-  // If there's no numeric value, return an empty string
-  if (!numericValue) {
+  const currencyValue = value.replace(/\D/g, '');
+  if (!currencyValue) {
     return '';
   }
+  const parsedValue = parseFloat(currencyValue) / 100;
 
-  // Convert the string into a number and divide by 100 for currency formatting
-  const parsedValue = parseFloat(numericValue) / 100;
-
-  // Format the number to Euro currency format
-  return parsedValue.toLocaleString('de-DE', {
+  return new Intl.NumberFormat('de-DE', {
     minimumFractionDigits: 2,
     maximumFractionDigits: 2,
-  });
+  }).format(parsedValue);
 }

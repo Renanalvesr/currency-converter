@@ -1,2 +1,19 @@
-<p>home works!</p>
-<app-currency></app-currency>
+<app-currency (formattedValue)="onInputCurrencyChange($event)"></app-currency>
+<p *ngIf="errorCurrency">Vázio/Inválido</p>
+<br />
+<label for="coinCode"
+  >Escolha para qual moeda que será feito a conversão:</label
+>
+
+<select #codeValues (change)="selectedCoinCode(codeValues.value)">
+  <option value="BRL" default>Real R$</option>
+  <option value="USD">Dolar $</option>
+  <option value="JPY">Iene ¥</option>
+  <option value="GBP">Pound £</option>
+</select>
+<br />
+<button (click)="submitCurrencyValue()">Enviar</button>
+<p *ngIf="convertedValue">
+  {{symbolCoin()}}{{convertedValue}}
+
+</p>

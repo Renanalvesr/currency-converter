@@ -1,3 +1,18 @@
 input::-webkit-inner-spin-button {
-    -webkit-appearance: none;  
+  -webkit-appearance: none;
+}
+input {
+  border: none;
+  width: 6em;
+}
+input:focus {
+  border: none;
+  outline: none;
+}
+.currencyInput {
+  display: flex;
+  border-style: groove;
+  border-radius: 30px;
+  width: 10em;
+  padding-left: 24px;
 }
